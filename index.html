@@ -3,246 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bazil Portfolio | Internal Version</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
+    <title>Bazil | Freelance Web Designer & Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
-        /* --- INTERNAL CSS --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --accent: #ff3366;
+            --bg: #0d0d0d;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #000;
+            background-color: var(--bg);
+            color: #fff;
             overflow-x: hidden;
-            line-height: 1.6;
+            background-image: radial-gradient(circle at 15% 15%, rgba(255, 51, 102, 0.08) 0%, transparent 40%);
         }
 
-        /* Navbar */
-        .navbar {
+        /* --- Navbar --- */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 5%;
-            position: relative;
-            z-index: 10;
+            padding: 20px 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .logo span { color: #ff3366; }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover { color: #000; }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .lang { font-size: 0.85rem; color: #888; }
-        .lang strong { color: #000; text-decoration: underline; }
+        .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; cursor: pointer; }
+        .logo span { color: var(--accent); }
 
         .contact-btn {
-            background: #000;
-            color: #fff;
+            background: #fff;
+            color: #000;
             padding: 10px 22px;
+            border-radius: 4px;
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 700;
         }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
+        /* --- Hero Section --- */
+        main {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 0.8fr;
+            padding: 140px 8% 80px;
+            min-height: 100vh;
+            gap: 40px;
             align-items: center;
-            text-align: center;
-            padding-top: 60px;
-            position: relative;
         }
 
-        .intro {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .title-group {
-            position: relative;
-            z-index: 1;
-            cursor: default;
-        }
-
-        .text-solid {
-            font-size: clamp(3.5rem, 14vw, 10rem);
-            font-weight: 900;
-            letter-spacing: -5px;
-            line-height: 0.85;
-            margin: 0;
-        }
-
-        .text-outline {
-            font-size: clamp(3.5rem, 14vw, 10rem);
-            font-weight: 900;
-            letter-spacing: -5px;
-            color: transparent;
-            -webkit-text-stroke: 1.5px #111;
-            line-height: 0.85;
-            margin: 0;
-        }
-
-        /* Gray Box Placeholder */
-        .image-container {
-            margin-top: -12%; /* Pulls box over the text */
-            position: relative;
-            z-index: 2;
-            pointer-events: none; /* Allows clicking buttons through overlap if needed */
-        }
-
-        .gray-box {
-            width: 320px;
-            height: 460px;
-            background-color: #efefef;
-            margin: 0 auto;
-            border-radius: 12px;
-            /* Fade effect at the bottom */
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
-
-        .hero-footer {
-            margin-top: -40px;
-            position: relative;
-            z-index: 3;
-            padding-bottom: 100px;
-        }
-
-        .location {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .buttons {
+        /* Left: Content */
+        .hero-content h2 { 
+            color: var(--accent); 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            margin-bottom: 15px;
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero-content h1 { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(3rem, 7vw, 7.5rem); 
+            line-height: 0.9; 
+            text-transform: uppercase; 
+            margin-bottom: 25px; 
+            letter-spacing: -2px;
         }
 
-        .btn {
-            padding: 15px 30px;
+        .hero-content p { 
+            color: #999; 
+            line-height: 1.7; 
+            margin-bottom: 40px; 
+            max-width: 480px; 
             font-size: 1rem;
+        }
+
+        .cta-group { display: flex; gap: 15px; margin-bottom: 40px; }
+        .btn { 
+            padding: 16px 28px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            transition: 0.4s; 
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn-fill { background: var(--accent); color: #fff; border: 2px solid var(--accent); }
+        .btn-line { border: 2px solid var(--border); color: #fff; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 51, 102, 0.2); }
+
+        /* --- Footer Links (New Section) --- */
+        .bottom-nav {
+            display: flex;
+            gap: 25px;
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
+        }
+        .bottom-nav a {
+            color: #777;
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            cursor: pointer;
-            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
+        .bottom-nav a:hover { color: var(--accent); }
 
-        .btn-black {
-            background: #000;
-            color: #fff;
-            border: none;
+        /* Center: Hero Image */
+        .image-center {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: #000;
-            border: 1px solid #000;
+        .hero-img {
+            width: 140%;
+            max-width: 600px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(255, 51, 102, 0.15));
+            z-index: 2;
+            transition: 0.5s ease;
+            transform: translateX(-5%);
         }
 
-        .btn:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
+        /* Right: Sidebar Stats */
+        .sidebar {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(25px);
+            z-index: 5;
         }
 
-        /* Responsive Design */
-        @media (max-width: 850px) {
-            .nav-links, .lang { display: none; }
-            .text-solid, .text-outline { letter-spacing: -2px; }
-            .image-container { margin-top: -5%; }
-            .gray-box { width: 240px; height: 320px; }
-            .buttons { flex-direction: column; align-items: center; width: 90%; margin: 0 auto; }
-            .btn { width: 100%; }
+        .info-block { margin-bottom: 30px; }
+        .val { display: block; font-size: 2.8rem; font-weight: 900; color: #fff; font-family: 'Oswald', sans-serif; line-height: 1; }
+        .label { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; display: block; }
+
+        .client-logos {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            opacity: 0.4;
+        }
+        .logo-box { height: 38px; background: rgba(255,255,255,0.05); border-radius: 4px; border: 1px solid var(--border); }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 1200px) {
+            main { grid-template-columns: 1fr; text-align: center; padding-top: 120px; }
+            .hero-content p { margin: 0 auto 35px; }
+            .cta-group { justify-content: center; }
+            .bottom-nav { justify-content: center; }
+            .hero-img { width: 100%; transform: none; margin-top: 20px; }
+            .sidebar { margin-top: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .bottom-nav { gap: 15px; }
+            .bottom-nav a { font-size: 0.8rem; }
+            .contact-btn { padding: 8px 16px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">Bazil<span>.</span></div>
-        <nav class="nav-links">
-            <a href="#">Design</a>
-            <a href="#">Photos</a>
-            <a href="#">About</a>
-        </nav>
-        <div class="nav-right">
-            <div class="lang">FR <strong>EN</strong></div>
-            <a href="mailto:hello@bazil.fr" class="contact-btn">hello@bazil.fr</a>
-        </div>
-    </header>
+    <nav>
+        <div class="logo">BAZIL<span>.</span></div>
+        <a href="mailto:hello@bazil.fr" class="contact-btn">hello@bazil.fr</a>
+    </nav>
 
-    <main class="hero">
-        <p class="intro">👋, my name is Bazil and I am a freelance</p>
-        
-        <div class="title-group" id="parallax-title">
-            <h1 class="text-solid">Webdesigner</h1>
-            <h1 class="text-outline">& Photographer</h1>
-        </div>
+    <main>
+        <div class="hero-content">
+            <h2><span style="width: 10px; height: 10px; background: #00ff88; border-radius: 50%; display: inline-block;"></span> Available for Hire</h2>
+            <h1>Web<br>Designer</h1>
+            <p>I help brands and startups build high-converting websites with a focus on modern aesthetics and seamless user experiences.</p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn btn-fill">Start a Project</a>
+                <a href="#" class="btn btn-line">Portfolio</a>
+            </div>
 
-        <div class="image-container">
-            <div class="gray-box"></div>
-        </div>
-
-        <div class="hero-footer">
-            <p class="location">based in Paris, France.</p>
-            <div class="buttons">
-                <button class="btn btn-black">You need a designer</button>
-                <button class="btn btn-outline">You need a photographer</button>
+            <div class="bottom-nav">
+                <a href="#">Projects</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
             </div>
         </div>
+
+        <div class="image-center">
+            <img src="./photo_2025-11-21_09-11-48-removebg-preview.png" class="hero-img" alt="Professional Portrait">
+        </div>
+
+        <div class="sidebar">
+            <div class="info-block">
+                <span class="val">0+</span>
+                <span class="label">Years Experience</span>
+            </div>
+            <div class="info-block">
+                <span class="val">0+</span>
+                <span class="label">Clients Worldwide</span>
+            </div>
+
+            <div class="client-logos">
+                <div class="logo-box"></div>
+                <div class="logo-box"></div>
+                <div class="logo-box"></div>
+                <div class="logo-box"></div>
+            </div>
+            <p style="font-size: 0.65rem; color: #444; margin-top: 15px; text-align: center; text-transform: uppercase;">Trusted by Digital Agencies</p>
+        </div>
     </main>
-
-    <script>
-        /* --- INTERNAL JAVASCRIPT --- */
-        // Parallax effect: Titles move slightly with mouse movement
-        document.addEventListener('mousemove', (e) => {
-            const title = document.getElementById('parallax-title');
-            const speed = 20;
-            
-            const x = (window.innerWidth - e.pageX * speed) / 100;
-            const y = (window.innerHeight - e.pageY * speed) / 100;
-
-            title.style.transform = `translateX(${x}px) translateY(${y}px)`;
-        });
-
-        // Console log to confirm script is working
-        console.log("Bazil Portfolio Script Initialized");
-    </script>
 
 </body>
 </html>
