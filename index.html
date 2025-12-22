@@ -3,9 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bazil Portfolio | Pure HTML CSS</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Bazil Portfolio | Internal Version</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- INTERNAL CSS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: #ff3366; }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #000; }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .lang { font-size: 0.85rem; color: #888; }
+        .lang strong { color: #000; text-decoration: underline; }
+
+        .contact-btn {
+            background: #000;
+            color: #fff;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+            position: relative;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .title-group {
+            position: relative;
+            z-index: 1;
+            cursor: default;
+        }
+
+        .text-solid {
+            font-size: clamp(3.5rem, 14vw, 10rem);
+            font-weight: 900;
+            letter-spacing: -5px;
+            line-height: 0.85;
+            margin: 0;
+        }
+
+        .text-outline {
+            font-size: clamp(3.5rem, 14vw, 10rem);
+            font-weight: 900;
+            letter-spacing: -5px;
+            color: transparent;
+            -webkit-text-stroke: 1.5px #111;
+            line-height: 0.85;
+            margin: 0;
+        }
+
+        /* Gray Box Placeholder */
+        .image-container {
+            margin-top: -12%; /* Pulls box over the text */
+            position: relative;
+            z-index: 2;
+            pointer-events: none; /* Allows clicking buttons through overlap if needed */
+        }
+
+        .gray-box {
+            width: 320px;
+            height: 460px;
+            background-color: #efefef;
+            margin: 0 auto;
+            border-radius: 12px;
+            /* Fade effect at the bottom */
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .hero-footer {
+            margin-top: -40px;
+            position: relative;
+            z-index: 3;
+            padding-bottom: 100px;
+        }
+
+        .location {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-black {
+            background: #000;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .nav-links, .lang { display: none; }
+            .text-solid, .text-outline { letter-spacing: -2px; }
+            .image-container { margin-top: -5%; }
+            .gray-box { width: 240px; height: 320px; }
+            .buttons { flex-direction: column; align-items: center; width: 90%; margin: 0 auto; }
+            .btn { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -17,7 +201,7 @@
             <a href="#">About</a>
         </nav>
         <div class="nav-right">
-            <span class="lang">FR <u>EN</u></span>
+            <div class="lang">FR <strong>EN</strong></div>
             <a href="mailto:hello@bazil.fr" class="contact-btn">hello@bazil.fr</a>
         </div>
     </header>
@@ -25,7 +209,7 @@
     <main class="hero">
         <p class="intro">👋, my name is Bazil and I am a freelance</p>
         
-        <div class="title-group">
+        <div class="title-group" id="parallax-title">
             <h1 class="text-solid">Webdesigner</h1>
             <h1 class="text-outline">& Photographer</h1>
         </div>
@@ -34,15 +218,31 @@
             <div class="gray-box"></div>
         </div>
 
-        <div class="footer-content">
+        <div class="hero-footer">
             <p class="location">based in Paris, France.</p>
             <div class="buttons">
-                <button class="btn-dark">You need a designer</button>
-                <button class="btn-outline">You need a photographer</button>
+                <button class="btn btn-black">You need a designer</button>
+                <button class="btn btn-outline">You need a photographer</button>
             </div>
         </div>
     </main>
 
-    <script src="index.js"></script>
+    <script>
+        /* --- INTERNAL JAVASCRIPT --- */
+        // Parallax effect: Titles move slightly with mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const title = document.getElementById('parallax-title');
+            const speed = 20;
+            
+            const x = (window.innerWidth - e.pageX * speed) / 100;
+            const y = (window.innerHeight - e.pageY * speed) / 100;
+
+            title.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+
+        // Console log to confirm script is working
+        console.log("Bazil Portfolio Script Initialized");
+    </script>
+
 </body>
 </html>
