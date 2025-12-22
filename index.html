@@ -1,22 +1,48 @@
-<section class="hero-section text-center">
-    <div class="container position-relative">
-        <p class="intro-text mb-0">👋, my name is Bazil and I am a freelance</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazil Portfolio | Pure HTML CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Bazil<span>.</span></div>
+        <nav class="nav-links">
+            <a href="#">Design</a>
+            <a href="#">Photos</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="nav-right">
+            <span class="lang">FR <u>EN</u></span>
+            <a href="mailto:hello@bazil.fr" class="contact-btn">hello@bazil.fr</a>
+        </div>
+    </header>
+
+    <main class="hero">
+        <p class="intro">👋, my name is Bazil and I am a freelance</p>
         
-        <div class="title-container">
-            <h1 class="main-title">Webdesigner</h1>
-            <h1 class="outline-title">& Photographer</h1>
+        <div class="title-group">
+            <h1 class="text-solid">Webdesigner</h1>
+            <h1 class="text-outline">& Photographer</h1>
         </div>
 
-        <div class="hero-image-wrapper">
-            <div class="placeholder-gray"></div>
+        <div class="image-container">
+            <div class="gray-box"></div>
         </div>
 
-        <div class="hero-footer mt-4">
-            <p class="location text-muted">based in Paris, France.</p>
-            <div class="cta-buttons d-flex justify-content-center gap-2 mt-3">
-                <button class="btn btn-dark rounded-0 px-4 py-2">You need a designer</button>
-                <button class="btn btn-outline-dark rounded-0 px-4 py-2">You need a photographer</button>
+        <div class="footer-content">
+            <p class="location">based in Paris, France.</p>
+            <div class="buttons">
+                <button class="btn-dark">You need a designer</button>
+                <button class="btn-outline">You need a photographer</button>
             </div>
         </div>
-    </div>
-</section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
