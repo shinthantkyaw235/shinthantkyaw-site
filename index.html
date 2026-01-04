@@ -3,237 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shin Thant Kyaw | Creative Developer</title>
     
-
-
-    <title>Shin Thant Kyaw | Web Developer Portfolio</title>
-    
-
-
-    <meta name="description" content="Shin Thant Kyaw - Web Developer Portfolio. Specialized in Frontend Development and modern web technologies.">
-    <meta name="keywords" content="Shin Thant Kyaw, Web Developer Myanmar, Frontend Developer, Portfolio, Myanmar Programmer">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --accent: #ff3366;
-            --bg: #0d0d0d;
+            --bg: #0a0a0a;
             --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
             background-color: var(--bg);
-            color: #fff;
+            color: var(--text-main);
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 15% 15%, rgba(255, 51, 102, 0.08) 0%, transparent 40%);
+            /* Background Glow Effects */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 51, 102, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 40%);
         }
 
-        /* --- Navbar --- */
+        /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
+            padding: 25px 8%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; cursor: pointer; }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
         .logo span { color: var(--accent); }
 
         .contact-btn {
-            background: #fff;
-            color: #000;
-            padding: 10px 22px;
-            border-radius: 4px;
+            background: transparent;
+            color: #fff;
+            padding: 10px 24px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
         }
+        .contact-btn:hover { background: #fff; color: #000; }
 
-        /* --- Hero Section --- */
+        /* --- Main Layout --- */
         main {
             display: grid;
             grid-template-columns: 1.2fr 1fr 0.8fr;
-            padding: 140px 8% 80px;
+            padding: 160px 8% 80px;
             min-height: 100vh;
             gap: 40px;
             align-items: center;
         }
 
+        /* --- Hero Content --- */
         .hero-content h2 { 
-            color: var(--accent); 
-            font-size: 0.8rem; 
+            color: #00ff88; 
+            font-size: 0.75rem; 
             text-transform: uppercase; 
-            letter-spacing: 4px; 
-            margin-bottom: 15px;
+            letter-spacing: 5px; 
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .hero-content h1 { 
             font-family: 'Oswald', sans-serif; 
-            font-size: clamp(3rem, 7vw, 7.5rem); 
-            line-height: 0.9; 
+            font-size: clamp(3.5rem, 8vw, 6.5rem); 
+            line-height: 0.85; 
             text-transform: uppercase; 
-            margin-bottom: 25px; 
-            letter-spacing: -2px;
+            margin-bottom: 30px; 
+            letter-spacing: -3px;
         }
 
         .hero-content p { 
-            color: #999; 
-            line-height: 1.7; 
-            margin-bottom: 40px; 
-            max-width: 480px; 
-            font-size: 1rem;
+            color: var(--text-dim); 
+            line-height: 1.8; 
+            margin-bottom: 45px; 
+            max-width: 450px; 
+            font-size: 1.1rem;
+            font-weight: 300;
         }
 
-        .cta-group { display: flex; gap: 15px; margin-bottom: 40px; }
+        .cta-group { display: flex; gap: 20px; margin-bottom: 50px; }
         .btn { 
-            padding: 16px 28px; 
-            border-radius: 4px; 
+            padding: 18px 32px; 
+            border-radius: 8px; 
             text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.9rem; 
-            transition: 0.4s; 
-            text-transform: uppercase;
-            text-align: center;
-        }
-        .btn-fill { background: var(--accent); color: #fff; border: 2px solid var(--accent); }
-        .btn-line { border: 2px solid var(--border); color: #fff; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 51, 102, 0.2); }
-
-        .bottom-nav {
-            display: flex;
-            gap: 25px;
-            border-top: 1px solid var(--border);
-            padding-top: 25px;
-        }
-        .bottom-nav a {
-            color: #777;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 800; 
+            font-size: 0.85rem; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
         }
-        .bottom-nav a:hover { color: var(--accent); }
+        .btn-fill { background: var(--accent); color: #fff; border: none; }
+        .btn-line { border: 1px solid var(--border); color: #fff; }
+        .btn:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(255, 51, 102, 0.3); }
 
+        /* --- Profile Image Area --- */
         .image-center {
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .hero-img {
-            width: 140%;
-            max-width: 600px;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(255, 51, 102, 0.15));
+            width: 130%;
+            max-width: 550px;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
             z-index: 2;
-            transition: 0.5s ease;
-            transform: translateX(-5%);
+            transition: 0.6s ease;
+        }
+        
+        /* Floating background circle behind image */
+        .img-bg-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--accent), #5011ff);
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: 1;
         }
 
+        /* --- Sidebar Stats --- */
         .sidebar {
             background: var(--glass);
             border: 1px solid var(--border);
-            padding: 40px 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(25px);
-            z-index: 5;
+            padding: 50px 35px;
+            border-radius: 30px;
+            backdrop-filter: blur(30px);
+            text-align: center;
         }
 
-        .info-block { margin-bottom: 30px; }
-        .val { display: block; font-size: 2.8rem; font-weight: 900; color: #fff; font-family: 'Oswald', sans-serif; line-height: 1; }
-        .label { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; display: block; }
+        .info-block { margin-bottom: 40px; }
+        .val { display: block; font-size: 3rem; font-weight: 900; color: #fff; font-family: 'Oswald', sans-serif; }
+        .label { color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-top: 8px; display: block; }
 
-        .client-logos {
-            margin-top: 30px;
+        .skills-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            opacity: 0.4;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
         }
-        .logo-box { height: 38px; background: rgba(255,255,255,0.05); border-radius: 4px; border: 1px solid var(--border); }
+        .skill-tag {
+            padding: 8px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
 
         @media (max-width: 1200px) {
-            main { grid-template-columns: 1fr; text-align: center; padding-top: 120px; }
-            .hero-content p { margin: 0 auto 35px; }
+            main { grid-template-columns: 1fr; text-align: center; padding-top: 140px; }
+            .hero-content p { margin: 0 auto 40px; }
             .cta-group { justify-content: center; }
-            .bottom-nav { justify-content: center; }
-            .hero-img { width: 100%; transform: none; margin-top: 20px; }
-            .sidebar { margin-top: 30px; }
-        }
-
-        @media (max-width: 480px) {
-            .bottom-nav { gap: 15px; }
-            .bottom-nav a { font-size: 0.8rem; }
-            .contact-btn { padding: 8px 16px; font-size: 0.75rem; }
+            .hero-img { width: 80%; margin: 40px 0; }
+            .sidebar { max-width: 500px; margin: 40px auto; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">BAZIL<span>.</span></div>
-        <a href="mailto:hello@bazil.fr" class="contact-btn">hello@bazil.fr</a>
+        <div class="logo">SHIN<span>.</span>THANT</div>
+        <a href="mailto:shinthantkyaw@email.com" class="contact-btn">Let's Talk</a>
     </nav>
 
     <main>
         <div class="hero-content">
-            <h2><span style="width: 10px; height: 10px; background: #00ff88; border-radius: 50%; display: inline-block;"></span> Available for Hire</h2>
-            <h1>Web<br>Designer</h1>
-            <p>I help brands and startups build high-converting websites with a focus on modern aesthetics and seamless user experiences.</p>
+            <h2><span style="width: 8px; height: 8px; background: #00ff88; border-radius: 50%; display: inline-block;"></span> Available for Projects</h2>
+            <h1>Creative<br>Developer</h1>
+            <p>ကျွန်တော်က Shin Thant Kyaw ဖြစ်ပါတယ်။ Modern ကျပြီး User တွေအတွက် အဆင်ပြေစေမယ့် Digital Experience တွေကို ဖန်တီးပေးတဲ့ နေရာမှာ ဝါသနာပါပါတယ်။</p>
             
             <div class="cta-group">
-                <a href="#" class="btn btn-fill">Start a Project</a>
-                <a href="#" class="btn btn-line">Portfolio</a>
+                <a href="#" class="btn btn-fill">Hire Me</a>
+                <a href="#" class="btn btn-line">View Work</a>
             </div>
 
-            <div class="bottom-nav">
-                <a href="#">Projects</a>
-                <a href="#">Services</a>
-                <a href="#">About</a>
+            <div style="display: flex; gap: 30px; opacity: 0.6;">
+                <span style="font-size: 0.8rem; letter-spacing: 2px;">UI/UX</span>
+                <span style="font-size: 0.8rem; letter-spacing: 2px;">FRONTEND</span>
+                <span style="font-size: 0.8rem; letter-spacing: 2px;">BRANDING</span>
             </div>
         </div>
 
         <div class="image-center">
-            <img src="./photo_2025-11-21_09-11-48-removebg-preview.png" class="hero-img" alt="Professional Portrait">
+            <div class="img-bg-circle"></div>
+            <img src="./photo_2025-11-21_09-11-48-removebg-preview.png" class="hero-img" alt="Shin Thant Kyaw">
         </div>
 
         <div class="sidebar">
             <div class="info-block">
-                <span class="val">0+</span>
-                <span class="label">Years Experience</span>
+                <span class="val">NEW</span>
+                <span class="label">Generation Dev</span>
             </div>
             <div class="info-block">
-                <span class="val">0+</span>
-                <span class="label">Clients Worldwide</span>
+                <span class="val">10+</span>
+                <span class="label">Tech Stack Mastered</span>
             </div>
 
-            <div class="client-logos">
-                <div class="logo-box"></div>
-                <div class="logo-box"></div>
-                <div class="logo-box"></div>
-                <div class="logo-box"></div>
+            <p style="font-size: 0.7rem; color: #666; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">Core Skills</p>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML/CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React.js</div>
+                <div class="skill-tag">UI Design</div>
             </div>
-            <p style="font-size: 0.65rem; color: #444; margin-top: 15px; text-align: center; text-transform: uppercase;">Trusted by Digital Agencies</p>
         </div>
     </main>
 
 </body>
 </html>
-
-
-
-
