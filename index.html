@@ -3,100 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STK DEV | Portfolio</title>
+    <title>STK | Developer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        :root {
-            --bg-dark: #121212;
-            --card-dark: #1e1e1e;
-            --accent-cyan: #00f2ea;
-            --text-gray: #b0b0b0;
+        body {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: #e2e8f0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
-        body { background-color: var(--bg-dark); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        /* Profile Image Styling */
-        .profile-img {
-            width: 180px; height: 180px;
-            object-fit: cover;
-            border: 4px solid var(--accent-cyan);
-            box-shadow: 0 0 20px var(--accent-cyan);
+
+        /* Profile Glow Effect */
+        .img-container {
+            position: relative;
+            display: inline-block;
+        }
+        .img-container::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            background: linear-gradient(45deg, #00f2ea, #007bff);
             border-radius: 50%;
+            z-index: -1;
+            filter: blur(15px);
+            animation: pulse 2s infinite;
+        }
+        .profile-img {
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.1);
         }
 
-        .navbar { background: rgba(18, 18, 18, 0.95); border-bottom: 1px solid #333; }
-        .hero { padding: 80px 0 50px; text-align: center; }
-        .cyan-text { color: var(--accent-cyan); }
-        
-        /* Form Styling */
-        .contact-form { background: var(--card-dark); padding: 30px; border-radius: 15px; border: 1px solid #333; }
-        .form-control { background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 8px; }
-        .form-control:focus { background: #333; border-color: var(--accent-cyan); color: white; box-shadow: none; }
-        
-        .btn-send { background: var(--accent-cyan); color: #000; font-weight: bold; border-radius: 8px; width: 100%; padding: 12px; border: none; }
-        .btn-send:hover { background: #00d1ca; transform: translateY(-2px); }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
 
-        .skill-box { background: var(--card-dark); border: 1px solid #333; padding: 10px 20px; border-radius: 10px; margin: 5px; display: inline-block; font-size: 14px; }
-        .project-card { background: var(--card-dark); border: 1px solid #333; border-radius: 15px; padding: 20px; transition: 0.3s; }
-        .project-card:hover { border-color: var(--accent-cyan); }
-        
-        /* Mobile adjustment */
-        @media (max-width: 768px) { .hero { padding: 40px 0; } .profile-img { width: 150px; height: 150px; } }
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .cyan-glow {
+            color: #00f2ea;
+            text-shadow: 0 0 10px rgba(0, 242, 234, 0.5);
+        }
+
+        /* Custom Form */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border-radius: 12px !important;
+            padding: 12px !important;
+        }
+
+        .btn-neon {
+            background: linear-gradient(90deg, #00f2ea, #007bff);
+            border: none;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            padding: 15px;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0, 242, 234, 0.2);
+        }
+
+        /* Bottom Nav for Mobile */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-sub { font-size: 1rem; }
+            .glass-card { margin-left: 10px; margin-right: 10px; }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><span class="cyan-text">STK</span> DEV</a>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <div class="img-container mb-4">
+                <img src="photo_2025-11-21_09-11-48-removebg-preview.png" alt="STK" class="profile-img">
+            </div>
+            <h1 class="hero-title fw-bold">Shin Thant Kyaw</h1>
+            <p class="hero-sub cyan-glow fw-bold">Full-Stack & Customize Software Developer</p>
         </div>
-    </nav>
 
-    <div class="container">
-        <div class="hero">
-            <img src="photo_2025-11-21_09-11-48-removebg-preview.png" alt="Shin Thant Kyaw" class="profile-img mb-4">
-            <h1 class="fw-bold">Shin Thant Kyaw</h1>
-            <p class="lead text-secondary">Website & Web Application Developer</p>
-            <div class="mt-4">
-                <div class="skill-box">HTML</div><div class="skill-box">CSS</div><div class="skill-box">JS</div>
-                <div class="skill-box">Supabase</div><div class="skill-box">Java</div><div class="skill-box">Python</div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="glass-card h-100">
+                    <h4 class="cyan-glow mb-3">Professional Bio</h4>
+                    <p class="text-secondary" style="font-size: 0.95rem;">
+                        Focused on building high-performance web applications and customized software. 
+                        I combine clean code with modern design to deliver the best user experience.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3 m-1">Supabase</span>
+                        <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3 m-1">Python</span>
+                        <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3 m-1">Java</span>
+                        <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3 m-1">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="glass-card h-100 border-info">
+                    <h4 class="cyan-glow mb-3">Latest Work</h4>
+                    <h5>Linbo.click</h5>
+                    <p class="small text-secondary">A gamified reward system with KPay/WavePay integration. Secure, fast, and user-centric.</p>
+                    <a href="https://linbo.click" class="btn btn-sm btn-outline-info rounded-pill">Explore Project</a>
+                </div>
             </div>
         </div>
 
-        <div class="py-5">
-            <h3 class="fw-bold mb-4 cyan-text">Featured Project</h3>
-            <div class="project-card">
-                <h4>Linbo.click</h4>
-                <p class="text-secondary">A Gamified Earning Platform integrated with KPay & WavePay.</p>
-                <a href="https://linbo.click" target="_blank" class="btn btn-sm btn-outline-info text-cyan">Visit Site</a>
-            </div>
-        </div>
-
-        <div class="py-5">
-            <h3 class="fw-bold mb-4 cyan-text text-center">Message Me Directly</h3>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form action="https://formspree.io/f/shinthantkyaw97172@gmail.com" method="POST" class="contact-form">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-7">
+                <div class="glass-card p-4">
+                    <h3 class="text-center mb-4">Direct Message</h3>
+                    <form action="https://formspree.io/f/shinthantkyaw97172@gmail.com" method="POST">
                         <div class="mb-3">
-                            <label class="form-label">Your Name</label>
-                            <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                            <input type="text" name="name" class="form-control form-input" placeholder="Your Name" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Your Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="example@mail.com" required>
+                            <input type="email" name="email" class="form-control form-input" placeholder="Your Email" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Message</label>
-                            <textarea name="message" class="form-control" rows="4" placeholder="How can I help you?" required></textarea>
+                            <textarea name="message" class="form-control form-input" rows="4" placeholder="Brief your project idea..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-send">SEND MESSAGE</button>
+                        <button type="submit" class="btn btn-neon">SEND TO SHIN THANT KYAW</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center py-4 text-secondary">
-        <small>© 2026 Shin Thant Kyaw. Built for Trust.</small>
+    <footer class="text-center py-5">
+        <p class="small text-muted">Built by STK &copy; 2026. All rights reserved.</p>
     </footer>
 
 </body>
